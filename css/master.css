@@ -1,0 +1,31 @@
+/* reset rules */
+    h2, p, ul {
+
+        /* to overwrite bootstrap's CSS */
+        margin-bottom: 0;
+    }
+
+    ul {
+
+        /* to overwrite bootstrap's CSS */
+        padding-left: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+/* /reset rules */
+
+/* rules used in specific parts of the page */
+    html {
+        font-size: 14px;
+    }
+    
+    body {
+        font-family: sans-serif;
+    }
+
+    .festivity-day {
+        color: red;
+    }
+/* /rules used in specific parts of the page */
