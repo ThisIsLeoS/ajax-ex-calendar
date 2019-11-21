@@ -8,7 +8,7 @@ var calendarYear = 2018;
  */
 var i;
 var templateSource, templateCompiled, templateFinal;
-var element = $("main .calendar ." + calendarYear);
+var element = $("main .calendar .year-" + calendarYear);
 var momentObj = moment();
 
 for (i = 0; i < 12; ++i) {
@@ -56,7 +56,7 @@ function generateDaysOfMonth(monthNum) {
 
             // a <ul> is appendend to the appropriate month element...
             month =
-                $("main .calendar ." + calendarYear + " > ." + momentObj.month(monthNum).format("MMM"));
+                $("main .calendar .year-" + calendarYear + " > ." + momentObj.month(monthNum).format("MMM"));
             month.html("<ul></ul>");
             // ... and stored into a variable
             monthUl = month.children("ul");
@@ -91,7 +91,7 @@ function generateDaysOfMonth(monthNum) {
                         templateCompiled = Handlebars.compile(templateSource);
                         templateFinal = templateCompiled({"festivity": data.response[j].name});
 
-                        $("." + calendarYear + " > ." + momentObj.month(monthNum).format("MMM") + " > ul > li[data-date=\"" + ithDayDate + "\"]")
+                        $(".year-" + calendarYear + " > ." + momentObj.month(monthNum).format("MMM") + " > ul > li[data-date=\"" + ithDayDate + "\"]")
                             .addClass("festivity-day").append(templateFinal);
                     }
                 }
