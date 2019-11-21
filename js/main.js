@@ -2,8 +2,12 @@
 trovate la descrizione  e tutto il resto qui: https://docs.google.com/document/d/1OcSGrT3Snh_DXrDZ82DVY59eqvzNb_Nh_Db5z3qq2_k/edit */
 
 $.ajax({
-    "url": "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
+    "url": "https://flynn.boolean.careers/exercises/api/holidays",
     "method": "GET",
+    "data": {
+        "year": 2018,
+        "month": 0
+    },
 
     /* if the HTTP request succeded, the days of January 2018 are printed with the format: <day 
     number> <name of the month>, with the festivities styled differently */
