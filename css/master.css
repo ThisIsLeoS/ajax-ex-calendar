@@ -25,6 +25,14 @@
         font-family: sans-serif;
     }
 
+    .month {
+        display: none;
+    }
+
+    .month.current-month {
+        display: block;
+    }
+
     .festivity-day {
         color: red;
     }

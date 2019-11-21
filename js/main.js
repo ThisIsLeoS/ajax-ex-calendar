@@ -4,7 +4,7 @@ trovate la descrizione  e tutto il resto qui: https://docs.google.com/document/d
 var calendarYear = 2018;
 
 /*
- * the calendar's months are generated and appended to the appropriate element
+ * the calendar's months are generated and appended
  */
 var i;
 var templateSource, templateCompiled, templateFinal;
@@ -23,10 +23,14 @@ for (i = 0; i < 12; ++i) {
     element.append(templateFinal);
 }
 
+// the first current month is january
+$(".gen").addClass("current-month");
+
 /*
  * the days of every month of the calendar are generated and appended
  */
 for (i = 0; i < 12; ++i) generateDaysOfMonth(i);
+
 
 function generateDaysOfMonth(monthNum) {
     $.ajax({
