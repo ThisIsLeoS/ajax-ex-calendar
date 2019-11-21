@@ -46,11 +46,8 @@ $.ajax({
                 "month": "gennaio"
             });
 
-            // the template is put inside a <li>
-            templateLi = "<li>" + templateFinal + "</li>";
-
-            // the <li> is appended to the previously created <ul>
-            janUl.append(templateLi);
+            // the template is appended to the previously created <ul>
+            janUl.append(templateFinal);
 
             for (j = 0; j < data.response.length; ++j) {
 
@@ -61,7 +58,7 @@ $.ajax({
                     templateCompiled = Handlebars.compile(templateSource);
                     templateFinal = templateCompiled({"festivity": data.response[j].name});
 
-                    $(".2018 > .january > ul > li > [data-date=\"" + ithDayDate + "\"]")
+                    $(".2018 > .january > ul > li[data-date=\"" + ithDayDate + "\"]")
                         .addClass("festivity-day").append(templateFinal);
                 }
             }
