@@ -63,5 +63,12 @@ $.ajax({
                 }
             }
         }
+    },
+    "error": function (jqXHR, textStatus, errorThrown) {
+        alert(
+            "jqXHR.status: " + jqXHR.status + "\n" +
+            "textStatus: " + textStatus + "\n" +
+            "errorThrown: " + errorThrown
+        );
     }
 });
