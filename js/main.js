@@ -1,12 +1,12 @@
 /* DESCRIZIONE EX:
 trovate la descrizione  e tutto il resto qui: https://docs.google.com/document/d/1OcSGrT3Snh_DXrDZ82DVY59eqvzNb_Nh_Db5z3qq2_k/edit */
 
-var i;
 var calendarYear = 2018;
 
 /*
  * the calendar's months are generated and appended to the appropriate element
  */
+var i;
 var templateSource, templateCompiled, templateFinal;
 var element = $("main .calendar ." + calendarYear);
 var momentObj = moment();
@@ -23,7 +23,9 @@ for (i = 0; i < 12; ++i) {
     element.append(templateFinal);
 }
 
-// the days of every month of the calendar are generated and appended
+/*
+ * the days of every month of the calendar are generated and appended
+ */
 for (i = 0; i < 12; ++i) generateDaysOfMonth(i);
 
 function generateDaysOfMonth(monthNum) {
@@ -35,8 +37,10 @@ function generateDaysOfMonth(monthNum) {
             "month": monthNum
         },
 
-        /* if the HTTP request succeded, the days of the month passed as input are printed with the
-        format: <day> <number> <name of the month>, with the festivities styled differently */
+        /*
+         * if the HTTP request succeded, the days of the month passed as input are printed with the
+         * format: <day number> <name of the month>, with the festivities styled differently
+         */
         "success": function(data) {
             var i,
                 j,
@@ -47,17 +51,17 @@ function generateDaysOfMonth(monthNum) {
                 monthUl;
 
             // a <ul> is appendend to the appropriate month element...
-            month = 
+            month =
                 $("main .calendar ." + calendarYear + " > ." + momentObj.month(monthNum).format("MMM"));
             month.html("<ul></ul>");
             // ... and stored into a variable
             monthUl = month.children("ul");
 
             // while i <= number of days in the month passed as input
-            for (i = 1; i <= moment(monthNum, "M").daysInMonth(); ++i) {
+            for (i = 1; i <= momentObj.month(monthNum).daysInMonth(); ++i) {
 
                 // date where the day corresponds to the ith iteration of the loop
-                ithDayDate = moment(i + "/" + monthNum + "/" + calendarYear, "D/M/YYYY").format("YYYY-MM-DD");
+                ithDayDate = moment(i + "/" + (monthNum + 1) + "/" + calendarYear, "D/M/YYYY").format("YYYY-MM-DD");
 
                 // handlebars' template creation
                 templateSource = $("#date-template").html();
@@ -68,7 +72,6 @@ function generateDaysOfMonth(monthNum) {
                     "month": momentObj.month(monthNum).format("MMMM")
                 });
 
-
                 // the template is appended to the previously created <ul>
                 monthUl.append(templateFinal);
 
@@ -78,6 +81,7 @@ function generateDaysOfMonth(monthNum) {
 
                     // if the ithDayDate is a festivity
                     if (data.response[j].date === ithDayDate) {
+
                         // handlebars' template creation
                         templateSource = $("#festivity-name-template").html();
                         templateCompiled = Handlebars.compile(templateSource);
