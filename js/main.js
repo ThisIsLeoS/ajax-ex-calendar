@@ -18,7 +18,7 @@ $.ajax({
     "method": "GET",
 
     /* if the HTTP request succeded, the days of January 2018 are printed with the format: <day 
-    number> <name of the month> */
+    number> <name of the month>, with the festivities styled differently */
     "success": function(data) {
         var i,
             j,
@@ -49,6 +49,8 @@ $.ajax({
             // the template is appended to the previously created <ul>
             janUl.append(templateFinal);
 
+            /* note: if the data.response array is empty (no festivities in that month), the next
+            for loop won't loop */
             for (j = 0; j < data.response.length; ++j) {
 
                 // if the ithDayDate is a festivity
