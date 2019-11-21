@@ -21,14 +21,16 @@ https://docs.google.com/document/d/1OcSGrT3Snh_DXrDZ82DVY59eqvzNb_Nh_Db5z3qq2_k/
   <main>
     <div class="calendar">
       <div class="2018">
-        <div class="january">
-        </div>
       </div>
     </div>
   </main>
   <!-- /main -->
 
   <!-- templates -->
+  <script id="month-template" type="text/x-handlebars-template">
+    <div class="{{month}}"></div>
+  </script>
+
   <script id="date-template" type="text/x-handlebars-template">
     <li data-date="{{date}}">
       <span class="day">{{day}}</span>
