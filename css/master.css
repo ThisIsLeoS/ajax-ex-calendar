@@ -27,7 +27,8 @@
 
     main .calendar .year-2018 {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .month {
