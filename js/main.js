@@ -64,7 +64,7 @@ function generateDaysOfMonth(monthNum) {
             for (i = 1; i <= momentObj.month(monthNum).daysInMonth(); ++i) {
 
                 // date where the day corresponds to the ith iteration of the loop
-                ithDayDate = moment(i + "/" + (monthNum + 1) + "/2018, "D/M/YYYY").format("YYYY-MM-DD");
+                ithDayDate = moment(i + "/" + (monthNum + 1) + "/2018", "D/M/YYYY").format("YYYY-MM-DD");
 
                 // handlebars' template creation
                 templateSource = $("#date-template").html();
