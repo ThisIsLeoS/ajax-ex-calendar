@@ -31,7 +31,6 @@ $(".gen").addClass("current-month");
  */
 for (i = 0; i < 12; ++i) generateDaysOfMonth(i);
 
-
 function generateDaysOfMonth(monthNum) {
     $.ajax({
         "url": "https://flynn.boolean.careers/exercises/api/holidays",
@@ -52,14 +51,14 @@ function generateDaysOfMonth(monthNum) {
                 templateSource,
                 templateCompiled,
                 month,
-                monthUl;
+                monthol;
 
-            // a <ul> is appendend to the appropriate month element...
+            // a <ol> is appendend to the appropriate month element...
             month =
                 $("main .calendar .year-" + calendarYear + " > ." + momentObj.month(monthNum).format("MMM"));
-            month.html("<ul></ul>");
+            month.html("<ol></ol>");
             // ... and stored into a variable
-            monthUl = month.children("ul");
+            monthol = month.children("ol");
 
             // while i <= number of days in the month passed as input
             for (i = 1; i <= momentObj.month(monthNum).daysInMonth(); ++i) {
@@ -76,8 +75,8 @@ function generateDaysOfMonth(monthNum) {
                     "month": momentObj.month(monthNum).format("MMMM")
                 });
 
-                // the template is appended to the previously created <ul>
-                monthUl.append(templateFinal);
+                // the template is appended to the previously created <ol>
+                monthol.append(templateFinal);
 
                 /* note: if the data.response array is empty (no festivities in that month), the
                 next for loop won't loop */
@@ -91,7 +90,7 @@ function generateDaysOfMonth(monthNum) {
                         templateCompiled = Handlebars.compile(templateSource);
                         templateFinal = templateCompiled({"festivity": data.response[j].name});
 
-                        $(".year-" + calendarYear + " > ." + momentObj.month(monthNum).format("MMM") + " > ul > li[data-date=\"" + ithDayDate + "\"]")
+                        $(".year-" + calendarYear + " > ." + momentObj.month(monthNum).format("MMM") + " > ol > li[data-date=\"" + ithDayDate + "\"]")
                             .addClass("festivity-day").append(templateFinal);
                     }
                 }
