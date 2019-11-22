@@ -20,11 +20,11 @@ https://docs.google.com/document/d/1OcSGrT3Snh_DXrDZ82DVY59eqvzNb_Nh_Db5z3qq2_k/
   <!-- main -->
   <main>
     <div class="calendar">
+      <div class="buttons">
+        <button class="prev">Previous</button>
+        <button class="next">Next</button>
+      </div>
       <div class="year-2018">
-        <div class="buttons">
-          <button>Previous</button>
-          <button>Next</button>
-        </div>
       </div>
     </div>
   </main>
@@ -36,7 +36,7 @@ https://docs.google.com/document/d/1OcSGrT3Snh_DXrDZ82DVY59eqvzNb_Nh_Db5z3qq2_k/
   </script>
 
   <script id="date-template" type="text/x-handlebars-template">
-    <li data-date="{{date}}">
+    <li class="date" data-date="{{date}}">
       <span class="date-day">{{date-day}}</span>
       <span class="date-month">{{date-month}}</span>
     </li>

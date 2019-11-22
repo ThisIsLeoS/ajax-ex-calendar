@@ -25,10 +25,15 @@
         font-family: sans-serif;
     }
 
-    main .calendar .year-2018 {
+    main .calendar {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    main .calendar .buttons {
+        display: flex;
+        justify-content: center;
     }
 
     .month {
