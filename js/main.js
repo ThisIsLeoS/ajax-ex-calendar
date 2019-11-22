@@ -1,11 +1,12 @@
 /* DESCRIZIONE EX:
 trovate la descrizione  e tutto il resto qui: https://docs.google.com/document/d/1OcSGrT3Snh_DXrDZ82DVY59eqvzNb_Nh_Db5z3qq2_k/edit */
+
 /*
  * the calendar's months are generated and appended
  */
 var i;
 var templateSource, templateCompiled, templateFinal;
-var element = $("main .calendar .year-2018");
+var yearElement = $("main .calendar > .year-2018");
 var momentObj = moment();
 
 for (i = 0; i < 12; ++i) {
@@ -14,14 +15,16 @@ for (i = 0; i < 12; ++i) {
     templateSource = $("#month-template").html();
     templateCompiled = Handlebars.compile(templateSource);
     templateFinal = templateCompiled({
+
+        // month with format "MMM" (jan, feb etc.)
         "month": momentObj.month(i).format("MMM")
     });
 
-    element.append(templateFinal);
+    yearElement.append(templateFinal);
 }
 
 // the first current month is january
-$(".gen").addClass("current-month");
+$("main .calendar > .year-2018 > .jan").addClass("current-month");
 
 /*
  * the days of every month of the calendar are generated and appended
