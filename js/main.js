@@ -1,14 +1,11 @@
 /* DESCRIZIONE EX:
 trovate la descrizione  e tutto il resto qui: https://docs.google.com/document/d/1OcSGrT3Snh_DXrDZ82DVY59eqvzNb_Nh_Db5z3qq2_k/edit */
-
-var calendarYear = 2018;
-
 /*
  * the calendar's months are generated and appended
  */
 var i;
 var templateSource, templateCompiled, templateFinal;
-var element = $("main .calendar .year-" + calendarYear);
+var element = $("main .calendar .year-2018");
 var momentObj = moment();
 
 for (i = 0; i < 12; ++i) {
@@ -36,7 +33,7 @@ function generateDaysOfMonth(monthNum) {
         "url": "https://flynn.boolean.careers/exercises/api/holidays",
         "method": "GET",
         "data": {
-            "year": calendarYear,
+            "year": 2018,
             "month": monthNum
         },
 
@@ -55,7 +52,7 @@ function generateDaysOfMonth(monthNum) {
 
             // a <ol> is appendend to the appropriate month element...
             month =
-                $("main .calendar .year-" + calendarYear + " > ." + momentObj.month(monthNum).format("MMM"));
+                $("main .calendar .year-2018 > ." + momentObj.month(monthNum).format("MMM"));
             month.html("<ol></ol>");
             // ... and stored into a variable
             monthol = month.children("ol");
@@ -64,7 +61,7 @@ function generateDaysOfMonth(monthNum) {
             for (i = 1; i <= momentObj.month(monthNum).daysInMonth(); ++i) {
 
                 // date where the day corresponds to the ith iteration of the loop
-                ithDayDate = moment(i + "/" + (monthNum + 1) + "/" + calendarYear, "D/M/YYYY").format("YYYY-MM-DD");
+                ithDayDate = moment(i + "/" + (monthNum + 1) + "/2018, "D/M/YYYY").format("YYYY-MM-DD");
 
                 // handlebars' template creation
                 templateSource = $("#date-template").html();
@@ -90,7 +87,7 @@ function generateDaysOfMonth(monthNum) {
                         templateCompiled = Handlebars.compile(templateSource);
                         templateFinal = templateCompiled({"festivity": data.response[j].name});
 
-                        $(".year-" + calendarYear + " > ." + momentObj.month(monthNum).format("MMM") + " > ol > li[data-date=\"" + ithDayDate + "\"]")
+                        $(".year-2018 > ." + momentObj.month(monthNum).format("MMM") + " > ol > li[data-date=\"" + ithDayDate + "\"]")
                             .addClass("festivity-day").append(templateFinal);
                     }
                 }
