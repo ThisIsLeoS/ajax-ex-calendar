@@ -19,7 +19,7 @@ $("main .calendar > .year-2018 > .gen").addClass("current-month");
 function createMonth(monthNum) {
 
     // the month element is created from the month template
-    var templateCompiled = Handlebars.compile($("#month-template").html());
+    var templateCompiled = Handlebars.compile($("body > #month-template").html());
     var templateHTML = templateCompiled({
 
         // month name with format "MMM" (jan, feb etc.)
@@ -49,7 +49,7 @@ function createDatesOl(monthNum) {
     for (var i = 1; i <= moment().month(monthNum - 1).daysInMonth(); ++i) {
 
         // the date element is created from the date template
-        var templateCompiled = Handlebars.compile($("#date-template").html());
+        var templateCompiled = Handlebars.compile($("body > #date-template").html());
         var templateHTML = templateCompiled({
             "date": moment(i + "/" + monthNum + "/2018", "D/M/YYYY").format("YYYY-MM-DD"),
             "date-day": i,
@@ -92,7 +92,7 @@ function addFestivity(dateElement, monthNum) {
                 if (data.response[i].date === dateElement.data("date")) {
 
                     // the festivity name element is created from the festivity name template
-                    var templateCompiled = Handlebars.compile($("#festivity-name-template").html());
+                    var templateCompiled = Handlebars.compile($("body > #festivity-name-template").html());
                     var templateHTML = templateCompiled({
                         "festivity": data.response[i].name
                     });
