@@ -101,7 +101,7 @@ function addFestivity(dateElement, monthNum) {
                     dateElement.children(":last-child").after(templateHTML);
 
                     // the festivity-day class is added to the date element
-                    dateElement.addClass("festivity-day");
+                    dateElement.addClass("festivity");
                 }
             }
         },
