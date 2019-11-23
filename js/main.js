@@ -3,13 +3,17 @@ trovate la descrizione  e tutto il resto qui: https://docs.google.com/document/d
 
 // @ts-check
 
+// the list element that will contain the months is appended to the .year-2018 element
+var year2018El = $("main .calendar > .year-2018");
+year2018El.append($("<ol>"));
+
 for (var i = 1; i <= 12; ++i) {
     var monthEl = createMonth(i);
-    $("main .calendar > .year-2018").append(monthEl);
+    year2018El.children("ol").append(monthEl);
 }
 
 // January is the first month visible in the page
-$("main .calendar > .year-2018 > .gen").addClass("current-month");
+$("main .calendar > .year-2018 > ol > .gen").addClass("current-month");
 
 /**
  * Returns the month element corresponding to the month number passed as input
