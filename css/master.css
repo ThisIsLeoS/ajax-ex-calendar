@@ -1,11 +1,11 @@
 /* reset rules */
-    h2, p, ul {
+    h2, p, ol, ul {
 
         /* to overwrite bootstrap's CSS */
         margin-bottom: 0;
     }
 
-    ul {
+    ol, ul {
 
         /* to overwrite bootstrap's CSS */
         padding-left: 0;
